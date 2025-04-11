@@ -1,0 +1,16 @@
+[Unit]
+Description=hyperplanning-fix service
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/hyperplanning-fix
+ExecStart=/home/pi/hyperplanning-fix/hyperplanning-fix
+StandardOutput=append:/home/pi/hyperplanning-fix/logs/server.log
+StandardError=append:/home/pi/hyperplanning-fix/logs/server.log
+ExecStartPost=/usr/bin/sudo /bin/systemctl reload nginx
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
