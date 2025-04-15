@@ -72,7 +72,7 @@ int main() {
     });
 
 
-    app.port(3002)
+    app.port(80)
             .multithreaded().run();
 
     return 0;
